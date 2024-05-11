@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->string('id', 12)->primary();
             $table->string('title', 200);
-            $table->date('post_date');
-            $table->date('end_date');
+            $table->dateTime('post_date');
+            $table->dateTime('end_date');
             $table->text('description');
-            $table->unsignedInteger('id_kegiatan')->nullable();
-            $table->string('img_header', 255)->default('Logo_Paroki.png');
+            $table->string('id_kegiatan')->nullable();
+            $table->string('img_header', 255)->default('Logo_Paroki.png')->nullable();
+            $table->string('status', 10);
             $table->timestamps();
             $table->softDeletesDatetime('deleted_at');
             $table->foreign('id_kegiatan')->references('id')->on('kegiatan');

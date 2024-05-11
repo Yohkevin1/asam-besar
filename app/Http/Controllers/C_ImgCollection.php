@@ -50,7 +50,7 @@ class C_ImgCollection extends Controller
 
             return redirect()->back()->with(['message' => 'Image deleted successfully', 'alert-type' => 'success']);
         } catch (QueryException $e) {
-            return redirect()->back()->with(['message' => 'Failed to delete image', 'alert-type' => 'error']);
+            return redirect()->back()->with(['message' => 'Failed to delete image because it is in use', 'alert-type' => 'error']);
         }
     }
 }

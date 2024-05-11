@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kegiatan', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('img_header', 255)->default('Logo_Paroki.png');
-            $table->string('name', 200);
+            $table->string('id', 12)->primary();
+            $table->string('title', 200);
             $table->string('location', 200);
-            $table->dateTime('date');
+            $table->date('date');
             $table->text('description')->nullable();
+            $table->string('img_header', 255)->default('Logo_Paroki.png')->nullable();
             $table->string('status', 50);
             $table->timestamps();
             $table->softDeletesDatetime('deleted_at');

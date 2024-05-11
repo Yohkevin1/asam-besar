@@ -14,11 +14,24 @@ class Pengumuman extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
+        'id',
         'title',
         'post_date',
         'end_date',
         'description',
         'id_kegiatan',
         'img_header',
+        'status',
     ];
+
+    protected $casts = [
+        'id' => 'string',
+        'post_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+    }
 }

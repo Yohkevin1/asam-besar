@@ -26,13 +26,13 @@
                         <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">Upload Image</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Pengumuman</a>
+                        <a href="{{ route('pengumuman') }}" class="btn btn-primary btn-block">Pengumuman</a>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ route('renungan') }}" class="btn btn-primary btn-block">Renungan</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="#" class="btn btn-primary btn-block">Kegiatan</a>
+                        <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">Kegiatan</a>
                     </li>
                 </ul>
             </div>

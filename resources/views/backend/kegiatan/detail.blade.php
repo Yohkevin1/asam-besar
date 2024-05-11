@@ -1,7 +1,7 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Update Renungan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, update renungan, ubah renungan, admin panel')
-@section('description', 'Update Renungan - Fitur Mengubah Renungan')
+@section('title', 'SPWPAA | Update Kegiatan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, update kegiatan, kelola kegiatan, admin panel')
+@section('description', 'Update Kegiatan - Fitur Mengubah Kegiatan')
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
@@ -9,10 +9,10 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('renungan') }}" class="btn btn-danger">Kembali</a>
+                <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
             </div>
             <div class="card-body">
-                <form id="renunganForm" action="{{ route('renunganUpdate', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form id="kegiatanForm" action="{{ route('kegiatanUpdate', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="form-row">
@@ -39,7 +39,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly value="{{ $data->img_header }}">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Select Image</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Pilih Gambar</button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -51,13 +51,15 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="location">Status</label>
-                            <input type="text" class="form-control mb-3" id="status" name="status" disabled value="{{ $data->status }}">
-                            <div class="text-right">
-                                <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                                <button type="submit" name="status" value="Draft" class="btn btn-secondary">Draft</button>
-                            </div>
+                            <label for="location">Lokasi</label>
+                            <input type="text" class="form-control" id="location" name="location" required value="{{ $data->location }}">
+                            <label for="location" class="mt-3">Status</label>
+                            <input type="text" class="form-control" id="status" name="status" disabled value="{{ $data->status }}">
                         </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
                     </div>
                 </form>
             </div>

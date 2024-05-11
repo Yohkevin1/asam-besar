@@ -72,7 +72,9 @@
                     @foreach($img_collection as $img)
                     <div class="col-md-2 mb-2">
                         <div class="img-option" data-img-id="{{ $img->id }}" style="cursor: pointer;">
+                            @if ($img->id !== 'Logo_Paroki.png')
                             <img src="{{ asset('storage/img/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
+                            @endif
                         </div>
                     </div>
                     @endforeach

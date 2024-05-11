@@ -13,11 +13,21 @@ class Kegiatan extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'img_header',
-        'name',
+        'id',
+        'title',
         'location',
         'date',
         'description',
+        'img_header',
         'status',
     ];
+
+    protected $casts = [
+        'id' => 'string',
+    ];
+
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+    }
 }

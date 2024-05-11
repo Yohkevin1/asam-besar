@@ -11,7 +11,7 @@ class C_Renungan extends Controller
 {
     public function index()
     {
-        $data = Renungan::all();
+        $data = Renungan::orderBy('created_at', 'desc')->get();
         return view('backend.renungan.index', compact('data'));
     }
 
@@ -82,7 +82,7 @@ class C_Renungan extends Controller
             'img_header' => $request->img_header ?? 'Logo_Paroki.png',
             'status' => $request->status
         ]);
-        return redirect()->to('renungan')->with(['message' => 'Renungan updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Renungan updated successfully', 'alert-type' => 'success']);
     }
 
     public function deleteRenungan($id)

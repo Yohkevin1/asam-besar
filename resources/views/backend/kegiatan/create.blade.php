@@ -1,7 +1,7 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Update Renungan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, update renungan, ubah renungan, admin panel')
-@section('description', 'Update Renungan - Fitur Mengubah Renungan')
+@section('title', 'SPWPAA | Create Kegiatan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola kegiatan, tambah kegiatan, admin panel')
+@section('description', 'Create Kegiatan - Fitur Menambah Kegiatan Baru')
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
@@ -9,55 +9,46 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('renungan') }}" class="btn btn-danger">Kembali</a>
+                <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
             </div>
             <div class="card-body">
-                <form id="renunganForm" action="{{ route('renunganUpdate', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form id="kegiatanForm" action="{{ route('kegiatanStore') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('POST')
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
-                            </div>
+                            <label for="title">Judul</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" id="date" name="date" required value="{{ $data->date }}">
-                            </div>
+                            <label for="date">Tanggal</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control summernote" id="description" name="description" rows="5" required>{{ $data->description }}</textarea>
+                        <label for="description">Deskripsi</label>
+                        <textarea class="form-control summernote" id="description" name="description" rows="5" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="img_header">Image Header</label>
+                            <label for="img_header">Gambar Header</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly value="{{ $data->img_header }}">
+                                <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly>
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Select Image</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Pilih Gambar</button>
                                 </div>
                             </div>
                             <div class="form-group">
-                                @if ($data->img_header == 'Logo_Paroki.png')
-                                <img src="{{ asset('img/' . $data->img_header) }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
-                                @else
-                                <img src="{{ asset('storage/img/' . $data->img_header) }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
-                                @endif
+                                <img src="{{ asset('img/img_empty.gif') }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="location">Status</label>
-                            <input type="text" class="form-control mb-3" id="status" name="status" disabled value="{{ $data->status }}">
-                            <div class="text-right">
-                                <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                                <button type="submit" name="status" value="Draft" class="btn btn-secondary">Draft</button>
-                            </div>
+                            <label for="location">Lokasi</label>
+                            <input type="text" class="form-control" id="location" name="location" required>
                         </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
                     </div>
                 </form>
             </div>
@@ -70,7 +61,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="imgCollectionModalLabel">Select Image</h5>
+                <h5 class="modal-title" id="imgCollectionModalLabel">Pilih Gambar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,8 +70,10 @@
                 <div class="row"> 
                     @foreach($img_collection as $img)
                     <div class="col-md-2 mb-2">
-                        <div class="img-option" data-img-id="{{ $img->id }}" style="cursor: pointer;">
+                        <div class="img-option" data-img-id="{{ $img->id }}" data-img-name="{{ $img->name }}" style="cursor: pointer;">
+                            @if ($img->id !== 'Logo_Paroki.png')
                             <img src="{{ asset('storage/img/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
+                            @endif
                         </div>
                     </div>
                     @endforeach
