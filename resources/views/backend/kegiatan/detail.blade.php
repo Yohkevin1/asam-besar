@@ -46,7 +46,7 @@
                                 @if ($data->img_header == 'Logo_Paroki.png')
                                 <img src="{{ asset('img/' . $data->img_header) }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
                                 @else
-                                <img src="{{ asset('storage/img/' . $data->img_header) }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
+                                <img src="{{ asset('img/collection/' . $data->img_header) }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
                                 @endif
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     @foreach($img_collection as $img)
                     <div class="col-md-2 mb-2">
                         <div class="img-option" data-img-id="{{ $img->id }}" style="cursor: pointer;">
-                            <img src="{{ asset('storage/img/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
+                            <img src="{{ asset('img/collection/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
                         </div>
                     </div>
                     @endforeach

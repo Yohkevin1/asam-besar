@@ -72,7 +72,7 @@
                     <div class="col-md-2 mb-2">
                         <div class="img-option" data-img-id="{{ $img->id }}" data-img-name="{{ $img->name }}" style="cursor: pointer;">
                             @if ($img->id !== 'Logo_Paroki.png')
-                            <img src="{{ asset('storage/img/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
+                            <img src="{{ asset('img/collection/'.$img->id) }}" alt="{{ $img->name }}" class="img-fluid">
                             @endif
                         </div>
                     </div>

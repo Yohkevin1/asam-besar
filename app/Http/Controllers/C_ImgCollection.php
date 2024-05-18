@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\IMG_Collection;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class C_ImgCollection extends Controller
@@ -28,7 +28,7 @@ class C_ImgCollection extends Controller
 
         $image = $request->file('image');
         $imageName = $image->hashName();
-        $image->storeAs('public/img/', $imageName);
+        $image->move('img/collection/', $imageName);
 
         IMG_Collection::create([
             'id' => $imageName
@@ -46,7 +46,7 @@ class C_ImgCollection extends Controller
             }
 
             $image->delete();
-            Storage::delete('public/img/' . $id);
+            File::delete('img/collection/' . $id);
 
             return redirect()->back()->with(['message' => 'Image deleted successfully', 'alert-type' => 'success']);
         } catch (QueryException $e) {

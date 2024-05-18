@@ -36,7 +36,7 @@
                 @foreach($images as $image)
                 @if ($image->id !== 'Logo_Paroki.png')
                 <div class="image-card" id="imageCard-{{ $image->id }}" style="margin-right: 10px;">
-                    <img src="{{ asset('storage/img/'.$image->id) }}" class="card-img-top img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                    <img src="{{ asset('img/collection/'.$image->id) }}" class="card-img-top img-thumbnail" style="max-width: 150px; max-height: 150px;">
                     <div class="card-body">
                         <form class="delete-form" action="{{ route('deleteImages', $image->id) }}" method="POST">
                             @csrf
