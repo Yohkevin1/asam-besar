@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Kelola Kegiatan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola kegiatan, manajemen kegiatan, admin panel')
+@section('title', 'SPWPAB | Kelola Kegiatan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola kegiatan, manajemen kegiatan, admin panel')
 @section('description', 'Kelola Kegiatan - Fitur Manajemen Kegiatan')
 @section('judul', 'Paroki Asam Besar')
 

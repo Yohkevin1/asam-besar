@@ -27,7 +27,7 @@ class C_Kegiatan extends Controller
             'title' => 'required|max:200',
             'location' => 'required',
             'date' => 'required|date',
-            'description' => 'required',
+            'description' => 'nullable',
             'img_header' => 'nullable',
             'status' => 'required',
         ]);
@@ -66,7 +66,7 @@ class C_Kegiatan extends Controller
             'title' => 'required|max:200',
             'location' => 'required',
             'date' => 'required|date',
-            'description' => 'required',
+            'description' => 'nullable',
             'img_header' => 'nullable',
             'status' => 'required',
         ]);

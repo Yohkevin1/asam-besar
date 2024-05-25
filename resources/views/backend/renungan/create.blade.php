@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Create Renungan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, create renungan, tambah renungan, admin panel')
+@section('title', 'SPWPAB | Create Renungan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, create renungan, tambah renungan, admin panel')
 @section('description', 'Create Renungan - Fitur Menambah Renungan Baru')
 @section('judul', 'Paroki Asam Besar')
 

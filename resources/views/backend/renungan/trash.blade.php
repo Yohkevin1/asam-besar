@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Kelola Renungan (Trash)')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola renungan, manajemen renungan, admin panel')
+@section('title', 'SPWPAB | Kelola Renungan (Trash)')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola renungan, manajemen renungan, admin panel')
 @section('description', 'Kelola Renungan - Fitur Manajemen Renungan yang Telah Dihapus')
 @section('judul', 'Paroki Asam Besar')
 

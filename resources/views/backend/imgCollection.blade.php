@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Upload Image')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA', 'image', 'upload')
+@section('title', 'SPWPAB | Upload Image')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB', 'image', 'upload')
 @section('description', 'Sistem Pengelolaan Website Paroki Asam Besar')
 @section('judul', 'Paroki Asam Besar')
 

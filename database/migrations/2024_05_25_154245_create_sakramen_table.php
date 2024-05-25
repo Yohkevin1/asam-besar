@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kegiatan', function (Blueprint $table) {
-            $table->string('id', 12)->primary();
+        Schema::create('sakramen', function (Blueprint $table) {
+            $table->increments('id', 10);
             $table->string('title', 200);
-            $table->string('location', 200);
-            $table->date('date');
-            $table->mediumText('description')->nullable();
+            $table->mediumText('description');
             $table->string('img_header', 255)->default('Logo_Paroki.png')->nullable();
-            $table->string('status', 50);
+            $table->string('status', 10);
             $table->timestamps();
             $table->softDeletesDatetime('deleted_at');
             $table->foreign('img_header')->references('id')->on('img_collection');
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kegiatan');
+        Schema::dropIfExists('sakramen');
     }
 };

@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Kelola Pengumuman (Trash)')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola pengumuman, manajemen pengumuman, admin panel')
+@section('title', 'SPWPAB | Kelola Pengumuman (Trash)')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola pengumuman, manajemen pengumuman, admin panel')
 @section('description', 'Kelola Pengumuman - Fitur Manajemen Pengumuman yang Telah Dihapus')
 @section('judul', 'Paroki Asam Besar')
 

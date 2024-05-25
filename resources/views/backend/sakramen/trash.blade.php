@@ -1,7 +1,7 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAB | Kelola Kegiatan (Trash)')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola kegiatan, manajemen kegiatan, admin panel')
-@section('description', 'Kelola Kegiatan - Fitur Manajemen Kegiatan yang Telah Dihapus')
+@section('title', 'SPWPAB | Kelola Sakramen (Trash)')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola sakramen, manajemen sakramen, admin panel')
+@section('description', 'Kelola Sakramen - Fitur Manajemen Sakramen yang Telah Dihapus')
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
+                    <a href="{{ route('sakramen') }}" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -18,27 +18,26 @@
                 <table class="table table-striped table-responsive w-auto" id="dataTable">
                     <thead>
                         <tr>
-                            <th>List Trash Kegiatan</th>
+                            <th>List Trash Sakramen</th>
                             <th width="10%">Status</th>
                             <th width="5%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $kegiatan)
+                        @foreach($data as $sakramen)
                         <tr>
                             <td>
-                                <h4><strong>{{ $kegiatan->title }}</strong></h4>
-                                {!! substr($kegiatan->description, 0, 500) !!}
+                                <h4><strong>{{ $sakramen->title }}</strong></h4>
                             </td>
                             <td>
                                 <p>Deleted</p>
                             </td>
                             <td>
-                                <form action="{{ route('kegiatanRestore', $kegiatan->id) }}" method="POST">
+                                <form action="{{ route('sakramenRestore', encrypt($sakramen->id)) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm">Restore</button>
                                 </form>
-                                <form action="{{ route('kegiatanForceDelete', $kegiatan->id) }}" method="POST">
+                                <form action="{{ route('sakramenForceDelete', encrypt($sakramen->id)) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Destroy</button>

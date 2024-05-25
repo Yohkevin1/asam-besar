@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Dashboard')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA')
+@section('title', 'SPWPAB | Dashboard')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB')
 @section('description', 'Sistem Pengelolaan Website Paroki Asam Besar')
 @section('judul', 'Paroki Asam Besar')
 
@@ -20,19 +20,22 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="{{ route('pengguna') }}" class="btn btn-primary btn-block">Kelola Pengguna</a>
-                    </li>
-                    <li class="list-group-item">
                         <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">Upload Image</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ route('pengumuman') }}" class="btn btn-primary btn-block">Pengumuman</a>
+                        <a href="{{ route('pengguna') }}" class="btn btn-primary btn-block">Kelola Pengguna</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ route('renungan') }}" class="btn btn-primary btn-block">Renungan</a>
+                        <a href="{{ route('pengumuman') }}" class="btn btn-primary btn-block">Kelola Pengumuman</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">Kegiatan</a>
+                        <a href="{{ route('renungan') }}" class="btn btn-primary btn-block">Kelola Renungan</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">Kelola Kegiatan</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ route('sakramen') }}" class="btn btn-primary btn-block">Kelola Sakramen</a>
                     </li>
                 </ul>
             </div>

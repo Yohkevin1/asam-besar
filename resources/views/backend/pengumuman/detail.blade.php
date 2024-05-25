@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Update Pengumuman')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola pengumuman, update pengumuman, admin panel')
+@section('title', 'SPWPAB | Update Pengumuman')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola pengumuman, update pengumuman, admin panel')
 @section('description', 'Update Pengumuman - Fitur Menambah Pengumuman Baru')
 @section('judul', 'Paroki Asam Besar')
 

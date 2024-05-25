@@ -1,7 +1,7 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAB | Update Renungan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, update renungan, ubah renungan, admin panel')
-@section('description', 'Update Renungan - Fitur Mengubah Renungan')
+@section('title', 'SPWPAB | Update Sakramen')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, update sakramen, ubah sakramen, admin panel')
+@section('description', 'Update Sakramen - Fitur Mengubah Sakramen')
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
@@ -9,25 +9,15 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('renungan') }}" class="btn btn-danger">Kembali</a>
+                <a href="{{ route('sakramen') }}" class="btn btn-danger">Kembali</a>
             </div>
             <div class="card-body">
-                <form id="renunganForm" action="{{ route('renunganUpdate', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form id="sakramenForm" action="{{ route('sakramenUpdate', encrypt($data->id)) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" class="form-control" id="date" name="date" required value="{{ $data->date }}">
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>

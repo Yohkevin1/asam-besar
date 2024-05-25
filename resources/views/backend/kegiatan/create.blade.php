@@ -1,6 +1,6 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAA | Create Kegiatan')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAA, kelola kegiatan, tambah kegiatan, admin panel')
+@section('title', 'SPWPAB | Create Kegiatan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, kelola kegiatan, tambah kegiatan, admin panel')
 @section('description', 'Create Kegiatan - Fitur Menambah Kegiatan Baru')
 @section('judul', 'Paroki Asam Besar')
 
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
-                        <textarea class="form-control summernote" id="description" name="description" rows="5" required></textarea>
+                        <textarea class="form-control summernote" id="description" name="description" rows="5"></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
