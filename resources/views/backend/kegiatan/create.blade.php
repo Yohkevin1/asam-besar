@@ -95,19 +95,6 @@
             $('.img-preview').attr('src', $(this).find('img').attr('src'));
             $('#imgCollectionModal').modal('hide');
         });
-
-        $('.summernote').summernote({
-            height: 200,
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['forecolor', 'backcolor']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['insert', ['picture']]
-            ]
-        });
     });
 </script>
 @endsection

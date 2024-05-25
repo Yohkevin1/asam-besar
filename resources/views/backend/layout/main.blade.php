@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.css') }}">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('css/summernote-bs4.min.css') }}" rel="stylesheet">
 </head>
 
@@ -62,7 +61,6 @@
     <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
     <script src="{{asset('js/sb-admin-2.js')}}"></script>
     <script src="{{ asset('js/jquery.dataTables.js')}}"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script> --}}
     <script src="{{ asset('js/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -84,8 +82,7 @@
                 break;
         }
         @endif
-    </script>
-    <script>
+
         function previewImage() {
             const foto = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview');
@@ -95,10 +92,29 @@
                 imgPreview.src = e.target.result;
             }
         }
-    </script>
-    <script>
         $(document).ready(function() {
             $('#dataTable').DataTable();
+        });
+        $('.summernote').summernote({
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['forecolor', 'backcolor']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['insert', ['picture', 'link']],
+                ['misc', ['undo', 'redo']],
+                ['style', ['style']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['view', ['fullscreen']],
+            ],
+            callbacks: {
+                onInit: function() {
+                    $('.note-editable').css('color', 'black');
+                }
+            }
         });
     </script>
     @yield('scripts')
