@@ -6,16 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Sakramen extends Model
+class Pernikahan extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'sakramen';
+    protected $table = 'pernikahan';
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
+        'id',
         'title',
+        'post_date',
+        'end_date',
         'description',
-        'img_header',
+        'foto',
         'status'
+    ];
+
+    protected $casts = [
+        'id' => 'string',
     ];
 }

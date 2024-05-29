@@ -52,7 +52,7 @@ class C_Kegiatan extends Controller
 
     public function detail($id)
     {
-        $data = Kegiatan::find($id);
+        $data = Kegiatan::find(decrypt($id));
         $img_collection = IMG_Collection::all();
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
@@ -75,7 +75,7 @@ class C_Kegiatan extends Controller
             return back()->with(['message' => $validator->errors()->first(), 'alert-type' => 'error']);
         }
 
-        $data = Kegiatan::find($id);
+        $data = Kegiatan::find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
         }
@@ -93,7 +93,7 @@ class C_Kegiatan extends Controller
 
     public function delete($id)
     {
-        $data = Kegiatan::find($id);
+        $data = Kegiatan::find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
         }
@@ -109,7 +109,7 @@ class C_Kegiatan extends Controller
 
     public function restore($id)
     {
-        $data = Kegiatan::withTrashed()->find($id);
+        $data = Kegiatan::withTrashed()->find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
         }
@@ -119,7 +119,7 @@ class C_Kegiatan extends Controller
 
     public function forceDelete($id)
     {
-        $data = Kegiatan::onlyTrashed()->find($id);
+        $data = Kegiatan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
         }

@@ -5,6 +5,12 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Upload Image</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-3">
         <div class="card">

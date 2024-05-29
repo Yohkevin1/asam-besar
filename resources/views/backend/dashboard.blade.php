@@ -12,7 +12,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Menu Admin</h6>
@@ -20,24 +20,51 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">Upload Image</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('pengguna') }}" class="btn btn-primary btn-block">Kelola Pengguna</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('pengumuman') }}" class="btn btn-primary btn-block">Kelola Pengumuman</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('renungan') }}" class="btn btn-primary btn-block">Kelola Renungan</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">Kelola Kegiatan</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('sakramen') }}" class="btn btn-primary btn-block">Kelola Sakramen</a>
+                        <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">
+                            <i class="fas fa-upload"></i> Upload Gambar
+                        </a>
                     </li>
                 </ul>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{{ route('pengguna') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-users"></i> Kelola Pengguna
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('pengumuman') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-bullhorn"></i> Kelola Pengumuman
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('renungan') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-book"></i> Kelola Renungan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-calendar-alt"></i> Kelola Kegiatan
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('layanan') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-pray"></i> Kelola Layanan
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('pernikahan') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-ring"></i> Kelola Pernikahan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

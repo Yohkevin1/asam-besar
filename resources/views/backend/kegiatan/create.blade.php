@@ -5,15 +5,26 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('kegiatan') }}">Kelola Kegiatan</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Tambah Kegiatan</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
-            </div>
-            <div class="card-body">
-                <form id="kegiatanForm" action="{{ route('kegiatanStore') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <form id="kegiatanForm" action="{{ route('kegiatanStore') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
+                    <div class="d-flex">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary ml-2">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary ml-2">Draft</button>
+                    </div>
+                </div>
+                <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="title">Judul</label>
@@ -50,8 +61,8 @@
                         <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
                         <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

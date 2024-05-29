@@ -5,6 +5,12 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Kelola Kegiatan</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -28,10 +34,11 @@
                         @foreach($data as $kegiatan)
                         <tr>
                             <td>
-                                <a href="{{ route('kegiatanDetail', $kegiatan->id) }}">
+                                <a href="{{ route('kegiatanDetail', encrypt($kegiatan->id)) }}">
                                     <h4><strong>{{ $kegiatan->title }}</strong></h4>
-                                    {!! substr($kegiatan->description, 0, 1000) !!}
+                                    {{ substr(strip_tags($kegiatan->description), 0, 200) }}...
                                 </a>
+                                <p style="font-size: 0.8rem; margin-top: 10px">Dibuat pada {{ $kegiatan->created_at }}</p>
                             </td>
                             <td>
                                 <p> {{ $kegiatan->status }} </p>
@@ -53,7 +60,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                <form action="{{ route('kegiatanDelete', $kegiatan->id) }}" method="POST">
+                                                <form action="{{ route('kegiatanDelete',encrypt($kegiatan->id)) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Hapus</button>

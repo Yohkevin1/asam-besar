@@ -5,16 +5,21 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Kelola Pengumuman</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('pengumumanCreate') }}" class="btn btn-primary">Create Pengumuman</a>
+                    <a href="{{ route('pengumumanCreate') }}" class="btn btn-primary">Tambah Pengumuman</a>
                     <a href="{{ route('pengumumanTrash') }}" class="btn btn-danger">Trash</a>
                 </div>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
                 <table class="table table-striped table-responsive w-auto" id="dataTable">
                     <thead >
@@ -30,8 +35,9 @@
                             <td>
                                 <a href="{{ route('pengumumanDetail', $pengumuman->id) }}">
                                     <h4><strong>{{ $pengumuman->title }}</strong></h4>
-                                    {!! substr($pengumuman->description, 0, 500) !!}
+                                    {{ substr(strip_tags($pengumuman->description), 0, 100) }}...
                                 </a>
+                                <p style="font-size: 0.8rem; margin-top: 10px">Dibuat pada {{ $pengumuman->created_at }}</p>
                             </td>
                             <td>
                                 <p> {{ $pengumuman->status }} </p>

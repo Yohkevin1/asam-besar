@@ -100,15 +100,14 @@
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
+                ['fontstyle', ['fontname','fontsize']],
                 ['color', ['forecolor', 'backcolor']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
-                ['insert', ['picture', 'link']],
+                ['insert', ['picture', 'link', 'table', 'hr', ]],
                 ['misc', ['undo', 'redo']],
                 ['style', ['style']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['view', ['fullscreen']],
+                ['view', ['fullscreen', 'help']],
             ],
             callbacks: {
                 onInit: function() {

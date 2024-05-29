@@ -1,29 +1,42 @@
 @extends('backend.layout.main')
-@section('title', 'SPWPAB | Create Sakramen')
-@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, create sakramen, tambah sakramen, admin panel')
-@section('description', 'Create Sakramen - Fitur Menambah Sakramen Baru')
+@section('title', 'SPWPAB | Create Layanan')
+@section('keywords', 'Sistem Pengelolaan Website Paroki Asam Besar, Paroki, Asam Besar, Paroki Asam Besar, Sistem Pengelolaan, Website, SPWPAB, create layanan, tambah layanan, admin panel')
+@section('description', 'Create Layanan - Fitur Menambah Layanan Baru')
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('layanan') }}">Kelola Layanan</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Tambah Layanan</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <a href="{{ route('sakramen') }}" class="btn btn-danger">Kembali</a>
-            </div>
-            <div class="card-body">
-                <form id="sakramenForm" action="{{ route('sakramenStore') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+            <form id="layananForm" action="{{ route('layananStore') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <a href="{{ route('layanan') }}" class="btn btn-danger">Kembali</a>
+                    <div class="d-flex">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary ml-2">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary ml-2">Draft</button>
                     </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control summernote" id="description" name="description" rows="5" required></textarea>
-                    </div>
+                </div>
+                <div class="card-body">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control summernote" id="description" name="description" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
                             <label for="img_header">Image Header</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly>
@@ -32,16 +45,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img src="{{ asset('img/img_empty.gif') }}" class="img-thumbnail img-preview mt-2" style="max-height: 200px; height: auto;">
+                                <img src="{{ asset('img/img_empty.gif') }}" class="img-thumbnail img-preview mt-2" style="max-height: 300px; height: auto;">
                             </div>
                         </div>
-                        <div class="form-group col-md-6 mt-4 text-right">
-                            <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                            <button type="submit" name="status" value="Draft" class="btn btn-secondary">Draft</button>
-                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

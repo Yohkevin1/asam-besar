@@ -5,6 +5,13 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('pengumuman') }}">Kelola Pengumuman</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Trash</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -28,7 +35,8 @@
                         <tr>
                             <td>
                                 <h4><strong>{{ $pengumuman->title }}</strong></h4>
-                                {!! substr($pengumuman->description, 0, 500) !!}
+                                {{ substr(strip_tags($pengumuman->description), 0, 100) }}...
+                                <p style="font-size: 0.8rem; margin-top: 10px">Dihapus pada {{ $pengumuman->deleted_at }}</p>
                             </td>
                             <td>
                                 <p>Deleted</p>

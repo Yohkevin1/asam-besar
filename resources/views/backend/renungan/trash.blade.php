@@ -5,6 +5,13 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('renungan') }}">Kelola Renungan</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Trash</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -28,17 +35,18 @@
                         <tr>
                             <td>
                                 <h4><strong>{{ $renungan->title }}</strong></h4>
-                                {!! substr($renungan->description, 0, 500) !!}
+                                {{ substr(strip_tags($renungan->description), 0, 200) }}...
+                                <p style="font-size: 0.8rem; margin-top: 10px">Dibuat pada {{ $renungan->created_at }}</p>
                             </td>
                             <td>
                                 <p>Deleted</p>
                             </td>
                             <td>
-                                <form action="{{ route('renunganRestore', $renungan->id) }}" method="POST">
+                                <form action="{{ route('renunganRestore', encrypt($renungan->id)) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm">Restore</button>
                                 </form>
-                                <form action="{{ route('renunganForceDelete', $renungan->id) }}" method="POST">
+                                <form action="{{ route('renunganForceDelete', encrypt($renungan->id)) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Destroy</button>

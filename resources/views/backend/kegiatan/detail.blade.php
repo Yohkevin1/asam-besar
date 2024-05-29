@@ -5,16 +5,26 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('kegiatan') }}">Kelola Kegiatan</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Detail Kegiatan</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
-            </div>
-            <div class="card-body">
-                <form id="kegiatanForm" action="{{ route('kegiatanUpdate', $data->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('POST')
+            <form id="kegiatanForm" action="{{ route('kegiatanUpdate', encrypt($data->id)) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <a href="{{ route('kegiatan') }}" class="btn btn-danger">Kembali</a>
+                    <div class="d-flex">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary ml-2">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary ml-2">Draft</button>
+                    </div>
+                </div>
+                <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-group">
@@ -57,13 +67,9 @@
                             <input type="text" class="form-control" id="status" name="status" disabled value="{{ $data->status }}">
                         </div>
                     </div>
-                    <div class="form-group text-right">
-                        <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                        <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

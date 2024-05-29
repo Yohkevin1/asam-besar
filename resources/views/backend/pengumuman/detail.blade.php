@@ -5,15 +5,26 @@
 @section('judul', 'Paroki Asam Besar')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('pengumuman') }}">Kelola Pengumuman</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Detail Pengumuman</strong></li>
+    </ol>
+</nav>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <a href="{{ route('pengumuman') }}" class="btn btn-danger">Kembali</a>
-            </div>
-            <div class="card-body">
-                <form id="pengumumanForm" action="{{ route('pengumumanUpdate', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <form id="pengumumanForm" action="{{ route('pengumumanUpdate', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <a href="{{ route('pengumuman') }}" class="btn btn-danger">Kembali</a>
+                    <div class="d-flex">
+                        <button type="submit" name="status" value="Publish" class="btn btn-primary ml-2">Publish</button>
+                        <button type="submit" name="status" value="Draft" class="btn btn-secondary ml-2">Draft</button>
+                    </div>
+                </div>
+                <div class="card-body">
                     <div class="form-group">
                         <label for="title">Judul</label>
                         <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
@@ -50,25 +61,23 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
+                            @if (!empty($data->id_kegiatan))
                             <label for="id_kegiatan">Kegiatan</label>
-                            <div class="input-group">
+                            <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="selectedKegiatan" name="selectedKegiatan" required readonly value="{{ $data->kegiatan->title ?? '' }}">
                                 <input type="hidden" id="id_kegiatan" name="id_kegiatan" value="{{ $data->id_kegiatan }}">
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kegiatanModal">Pilih Kegiatan</button>
                                 </div>
                             </div>
-                            <label for="location" class="mt-3">Status</label>
+                            @endif
+                            <label for="location">Status</label>
                             <input type="text" class="form-control" id="status" name="status" disabled value="{{ $data->status }}">
                         </div>
                     </div>
-                    <div class="form-group text-right">
-                        <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                        <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

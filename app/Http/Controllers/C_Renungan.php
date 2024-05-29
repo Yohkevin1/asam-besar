@@ -50,7 +50,7 @@ class C_Renungan extends Controller
 
     public function detailRenungan($id)
     {
-        $data = Renungan::find($id);
+        $data = Renungan::find(decrypt($id));
         $img_collection = IMG_Collection::all();
         if (!$data) {
             return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
@@ -71,7 +71,7 @@ class C_Renungan extends Controller
             return back()->with(['message' => $validator->errors()->first(), 'alert-type' => 'error']);
         }
 
-        $data = Renungan::find($id);
+        $data = Renungan::find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
         }
@@ -87,7 +87,7 @@ class C_Renungan extends Controller
 
     public function deleteRenungan($id)
     {
-        $data = Renungan::find($id);
+        $data = Renungan::find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
         }
@@ -103,7 +103,7 @@ class C_Renungan extends Controller
 
     public function restoreRenungan($id)
     {
-        $data = Renungan::onlyTrashed()->find($id);
+        $data = Renungan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
         }
@@ -113,7 +113,7 @@ class C_Renungan extends Controller
 
     public function forceDeleteRenungan($id)
     {
-        $data = Renungan::onlyTrashed()->find($id);
+        $data = Renungan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
             return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
         }
