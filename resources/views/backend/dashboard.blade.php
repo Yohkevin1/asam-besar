@@ -19,15 +19,16 @@
             </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">
-                            <i class="fas fa-upload"></i> Upload Gambar
-                        </a>
-                    </li>
+                    
                 </ul>
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">
+                                    <i class="fas fa-upload"></i> Upload Gambar
+                                </a>
+                            </li>
                             <li class="list-group-item">
                                 <a href="{{ route('pengguna') }}" class="btn btn-primary btn-block">
                                     <i class="fas fa-users"></i> Kelola Pengguna
@@ -47,6 +48,11 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{{ route('profile') }}" class="btn btn-primary btn-block">
+                                    <i class="fa-solid fa-church"></i> Kelola Profile Paroki
+                                </a>
+                            </li>
                             <li class="list-group-item">
                                 <a href="{{ route('kegiatan') }}" class="btn btn-primary btn-block">
                                     <i class="fas fa-calendar-alt"></i> Kelola Kegiatan

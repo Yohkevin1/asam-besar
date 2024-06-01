@@ -8,6 +8,7 @@ use App\Http\Controllers\C_Pengumuman;
 use App\Http\Controllers\C_Pernikahan;
 use App\Http\Controllers\C_Renungan;
 use App\Http\Controllers\C_Layanan;
+use App\Http\Controllers\C_Profile;
 use App\Http\Controllers\C_Users;
 use Illuminate\Support\Facades\Route;
 
@@ -83,5 +84,14 @@ Route::prefix('backyard')->group(function () {
         Route::get('/pernikahan-trash', [C_Pernikahan::class, 'trash'])->name('pernikahanTrash');
         Route::post('/pernikahan/restore/{id}', [C_Pernikahan::class, 'restore'])->name('pernikahanRestore');
         Route::delete('/pernikahan/forceDelete/{id}', [C_Pernikahan::class, 'forceDelete'])->name('pernikahanForceDelete');
+        Route::get('/profile', [C_Profile::class, 'index'])->name('profile');
+        Route::get('/profile/create', [C_Profile::class, 'create'])->name('profileCreate');
+        Route::post('/profile/store', [C_Profile::class, 'store'])->name('profileStore');
+        Route::get('/profile/{id}', [C_Profile::class, 'detail'])->name('profileDetail');
+        Route::post('/profile/update/{id}', [C_Profile::class, 'update'])->name('profileUpdate');
+        Route::delete('/profile/{id}', [C_Profile::class, 'delete'])->name('profileDelete');
+        Route::get('/profile-trash', [C_Profile::class, 'trash'])->name('profileTrash');
+        Route::post('/profile/restore/{id}', [C_Profile::class, 'restore'])->name('profileRestore');
+        Route::delete('/profile/forceDelete/{id}', [C_Profile::class, 'forceDelete'])->name('profileForceDelete');
     });
 });
