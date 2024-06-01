@@ -28,7 +28,7 @@ class C_Users extends Controller
             return back()->with(['message' => $validator->errors()->first(), 'alert-type' => 'error']);
         }
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
