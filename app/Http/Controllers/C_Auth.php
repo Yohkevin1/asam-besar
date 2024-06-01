@@ -32,7 +32,7 @@ class C_Auth extends Controller
             session()->put('user', $data);
             return redirect()->route('dashboard');
         } else {
-            session()->flash('error', 'Username atau Password Salah');
+            session()->flash('error', 'Email atau Password Salah');
             return redirect()->back()->withInput();
         }
     }
@@ -64,6 +64,6 @@ class C_Auth extends Controller
         $user = User::find($id);
         $user->password = bcrypt($request->newPassword);
         $user->save();
-        return redirect()->back()->with(['message' => 'Password Berhasil', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Password Berhasil Diubah', 'alert-type' => 'success']);
     }
 }
