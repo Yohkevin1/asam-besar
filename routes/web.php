@@ -20,6 +20,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('homePage');
+});
+Route::get('/kontak' , function () {
+    return view('kontak');
+});
+Route::get('/renunganPage' , function () {
+    return view('renungan');
+});
+Route::get('/simbol' , function () {
+    return view('simbol');
+});
+
+Route::get('/baptis' , function () {
+    return view('baptis');
+});
+Route::get('/tobat' , function () {
+    return view('tobat');
+});
+Route::get('/komuni' , function () {
+    return view('komuni');
+});
+Route::get('/krisma' , function () {
+    return view('krisma');
+});
+Route::get('/pernikahan' , function () {
+    return view('pernikahan');
+});
+Route::get('/kegiatanP' , function () {
+    return view('kegiatan');
+});
+
 Route::group([], function () {
     Route::get('/login', [C_Auth::class, 'index'])->name('login');
     Route::post('/login', [C_Auth::class, 'login'])->name('login');
