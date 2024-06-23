@@ -90,7 +90,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($layanan as $layanan)
-                            <li><a class="dropdown-item" href="{{ url(strtolower($layanan->title)) }}">{{ $layanan->title }}</a></li>  
+                            <li><a class="dropdown-item" href="{{ route('layananPage', strtolower($layanan->title)) }}">{{ $layanan->title }}</a></li>  
                         @endforeach
                     </ul>
                 </li>

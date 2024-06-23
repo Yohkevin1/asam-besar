@@ -32,6 +32,7 @@ Route::group([], function () {
     Route::get('/renungan/{id}', [C_Frontend::class, 'detailRenungan'])->name('detailRenungan');
     Route::get('/kegiatan/{id}', [C_Frontend::class, 'detailKegiatan'])->name('detailKegiatan');
     Route::get('/profile/{slug}', [C_Frontend::class, 'profile'])->name('profilePage');
+    Route::get('/layanan/{slug}', [C_Frontend::class, 'layanan'])->name('layananPage');
 });
 
 Route::prefix('backyard')->group(function () {

@@ -73,4 +73,14 @@ class C_Frontend extends Controller
             abort(404);
         return view('frontend.detailPage', compact('data', 'profile', 'layanan'));
     }
+
+    public function layanan($slug)
+    {
+        $profile = Profile::where('status', 'Publish')->get();
+        $layanan = Layanan::where('status', 'Publish')->get();
+        $data = Profile::where('title', $slug)->where('status', 'Publish')->first();
+        if (!$data)
+            abort(404);
+        return view('frontend.layanan', compact('layanan', 'profile', 'data'));
+    }
 }
