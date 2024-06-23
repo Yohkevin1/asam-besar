@@ -81,6 +81,6 @@ class C_Frontend extends Controller
         $data = Profile::where('title', $slug)->where('status', 'Publish')->first();
         if (!$data)
             abort(404);
-        return view('frontend.layanan', compact('layanan', 'profile', 'data'));
+        return view('frontend.detailPage', compact('layanan', 'profile', 'data'));
     }
 }
