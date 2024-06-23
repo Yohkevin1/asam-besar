@@ -78,7 +78,7 @@ class C_Frontend extends Controller
     {
         $profile = Profile::where('status', 'Publish')->get();
         $layanan = Layanan::where('status', 'Publish')->get();
-        $data = Profile::where('title', $slug)->where('status', 'Publish')->first();
+        $data = Layanan::where('title', $slug)->where('status', 'Publish')->first();
         if (!$data)
             abort(404);
         return view('frontend.detailPage', compact('layanan', 'profile', 'data'));
