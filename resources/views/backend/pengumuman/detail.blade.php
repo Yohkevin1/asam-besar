@@ -61,7 +61,6 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            @if (!empty($data->id_kegiatan))
                             <label for="id_kegiatan">Kegiatan</label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="selectedKegiatan" name="selectedKegiatan" required readonly value="{{ $data->kegiatan->title ?? '' }}">
@@ -70,7 +69,6 @@
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kegiatanModal">Pilih Kegiatan</button>
                                 </div>
                             </div>
-                            @endif
                             <label for="location">Status</label>
                             <input type="text" class="form-control" id="status" name="status" disabled value="{{ $data->status }}">
                         </div>

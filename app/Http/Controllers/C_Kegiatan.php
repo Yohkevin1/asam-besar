@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\IMG_Collection;
 use App\Models\Kegiatan;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -97,6 +98,7 @@ class C_Kegiatan extends Controller
         if (!$data) {
             return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
         }
+        Pengumuman::where('id_kegiatan', decrypt($id))->update(['id_kegiatan' => null]);
         $data->delete();
         return redirect()->back()->with(['message' => 'Kegiatan deleted successfully', 'alert-type' => 'success']);
     }
@@ -119,12 +121,16 @@ class C_Kegiatan extends Controller
 
     public function forceDelete($id)
     {
-        $data = Kegiatan::onlyTrashed()->find(decrypt($id));
-        if (!$data) {
-            return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+        try {
+            $data = Kegiatan::onlyTrashed()->find(decrypt($id));
+            if (!$data) {
+                return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+            }
+            $data->forceDelete();
+            return back()->with(['message' => 'Kegiatan deleted successfully', 'alert-type' => 'success']);
+        } catch (\Exception) {
+            return back()->with(['message' => 'Kegiatan tidak dapat dihapus permanen karena terikat dengan data lain', 'alert-type' => 'error']);
         }
-        $data->forceDelete();
-        return back()->with(['message' => 'Kegiatan deleted successfully', 'alert-type' => 'success']);
     }
 
     public function generateID()
