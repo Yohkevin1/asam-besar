@@ -17,7 +17,7 @@
             <div class="card-header">
                 <div class="card-tools">
                     <a href="{{ route('renunganCreate') }}" class="btn btn-primary">Tambah Renungan</a>
-                    <a href="{{ route('renunganTrash') }}" class="btn btn-danger">Trash</a>
+                    <a href="{{ route('renunganTrash') }}" class="btn btn-danger">Tempat Sampah</a>
                 </div>
             </div>
             <div class="card-body">

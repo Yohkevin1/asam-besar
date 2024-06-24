@@ -17,7 +17,7 @@
             <div class="card-header">
                 <div class="card-tools">
                     <a href="{{ route('pengumumanCreate') }}" class="btn btn-primary">Tambah Pengumuman</a>
-                    <a href="{{ route('pengumumanTrash') }}" class="btn btn-danger">Trash</a>
+                    <a href="{{ route('pengumumanTrash') }}" class="btn btn-danger">Tempat Sampah</a>
                 </div>
             </div>
             <div class="card-body">

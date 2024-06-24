@@ -16,8 +16,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('kegiatanCreate') }}" class="btn btn-primary">Create Kegiatan</a>
-                    <a href="{{ route('kegiatanTrash') }}" class="btn btn-danger">Trash</a>
+                    <a href="{{ route('kegiatanCreate') }}" class="btn btn-primary">Tambah Kegiatan</a>
+                    <a href="{{ route('kegiatanTrash') }}" class="btn btn-danger">Tempat Sampah</a>
                 </div>
             </div>
             <!-- /.card-header -->

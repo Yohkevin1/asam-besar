@@ -45,7 +45,7 @@ class C_Renungan extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with(['message' => 'Renungan created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Renungan berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detailRenungan($id)
@@ -53,7 +53,7 @@ class C_Renungan extends Controller
         $data = Renungan::find(decrypt($id));
         $img_collection = IMG_Collection::all();
         if (!$data) {
-            return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.renungan.detail', compact('data', 'img_collection'));
     }
@@ -73,7 +73,7 @@ class C_Renungan extends Controller
 
         $data = Renungan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->update([
             'title' => $request->title,
@@ -82,17 +82,17 @@ class C_Renungan extends Controller
             'img_header' => $request->img_header ?? 'Logo_Paroki.png',
             'status' => $request->status
         ]);
-        return redirect()->back()->with(['message' => 'Renungan updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Renungan berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function deleteRenungan($id)
     {
         $data = Renungan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->delete();
-        return back()->with(['message' => 'Renungan deleted successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Renungan berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -105,20 +105,20 @@ class C_Renungan extends Controller
     {
         $data = Renungan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return back()->with(['message' => 'Renungan restored successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Renungan berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDeleteRenungan($id)
     {
         $data = Renungan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Renungan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->forceDelete();
-        return back()->with(['message' => 'Renungan deleted permanently', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Renungan berhasil dihapus permanen', 'alert-type' => 'success']);
     }
 
     public function generateID()

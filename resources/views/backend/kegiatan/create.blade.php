@@ -27,11 +27,11 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="title">Judul</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+                            <label for="title">Nama Kegiatan <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Contoh: Kerja Bakti" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="date">Tanggal</label>
+                            <label for="date">Tanggal Kegiatan <span class="text-danger">*</span></label>
                             <input type="date" class="form-control" id="date" name="date" required>
                         </div>
                     </div>

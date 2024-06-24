@@ -40,7 +40,7 @@ class C_Profile extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with(['message' => 'Profile created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => $request->title . ' berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detail($id)
@@ -49,7 +49,7 @@ class C_Profile extends Controller
         $data = Profile::find($id);
         $img_collection = IMG_Collection::all();
         if (!$data) {
-            return back()->with(['message' => 'Profile not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.profile.detail', compact('data', 'img_collection'));
     }
@@ -69,7 +69,7 @@ class C_Profile extends Controller
         $id = decrypt($id);
         $data = Profile::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Profile not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data ' . $data->title . ' tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->update([
             'title' => $request->title,
@@ -77,7 +77,7 @@ class C_Profile extends Controller
             'img_header' => $request->img_header ?? 'Logo_Paroki.png',
             'status' => $request->status
         ]);
-        return redirect()->back()->with(['message' => 'Profile updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data ' . $data->title . ' berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function delete($id)
@@ -85,10 +85,10 @@ class C_Profile extends Controller
         $id = decrypt($id);
         $data = Profile::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Profile not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data ' . $data->title . ' tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->delete();
-        return back()->with(['message' => 'Profile deleted successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data ' . $data->title . ' berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -102,10 +102,10 @@ class C_Profile extends Controller
         $id = decrypt($id);
         $data = Profile::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Profile not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return back()->with(['message' => 'Profile restored successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data ' . $data->title . ' berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDelete($id)
@@ -113,9 +113,9 @@ class C_Profile extends Controller
         $id = decrypt($id);
         $data = Profile::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Profile not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->forceDelete();
-        return back()->with(['message' => 'Profile deleted permanently', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data ' . $data->title . ' berhasil dihapus permanen', 'alert-type' => 'success']);
     }
 }

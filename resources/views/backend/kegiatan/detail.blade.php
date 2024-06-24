@@ -28,24 +28,24 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
+                                <label for="title">Nama Kegiatan <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Contoh: Kerja Bakti" required value="{{ $data->title }}">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-group">
-                                <label for="date">Date</label>
+                                <label for="date">Tanggal Kegiatan <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control" id="date" name="date" required value="{{ $data->date }}">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">Deskripsi Kegiatan</label>
                         <textarea class="form-control summernote" id="description" name="description" rows="5">{{ $data->description }}</textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="img_header">Image Header</label>
+                            <label for="img_header">Gambar Header</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly value="{{ $data->img_header }}">
                                 <div class="input-group-append">

@@ -49,7 +49,7 @@ class C_Pengumuman extends Controller
             'img_header' => $request->img_header ?? 'Logo_Paroki.png',
             'status' => $request->status,
         ]);
-        return redirect()->back()->with(['message' => 'Pengumuman created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pengumuman ' . $request->title . ' berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detail($id)
@@ -58,7 +58,7 @@ class C_Pengumuman extends Controller
         $img_collection = IMG_Collection::all();
         $kegiatan = Kegiatan::where('status', 'Publish')->get();
         if (!$data) {
-            return back()->with(['message' => 'Pengumuman not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pengumuman tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.pengumuman.detail', compact('data', 'img_collection', 'kegiatan'));
     }
@@ -81,7 +81,7 @@ class C_Pengumuman extends Controller
 
         $data = Pengumuman::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Pengumuman not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Pengumuman tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->update([
             'title' => $request->title,
@@ -92,17 +92,17 @@ class C_Pengumuman extends Controller
             'img_header' => $request->img_header,
             'status' => $request->status,
         ]);
-        return redirect()->back()->with(['message' => 'Pengumuman updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pengumuman ' . $data->title . ' berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function delete($id)
     {
         $data = Pengumuman::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Pengumuman not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pengumuman tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->delete();
-        return redirect()->back()->with(['message' => 'Pengumuman deleted successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pengumuman ' . $data->title . ' berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -115,20 +115,20 @@ class C_Pengumuman extends Controller
     {
         $data = Pengumuman::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Pengumuman not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pengumuman tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return redirect()->back()->with(['message' => 'Pengumuman restored successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pengumuman ' . $data->title . ' berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDelete($id)
     {
         $data = Pengumuman::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Pengumuman not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pengumuman tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->forceDelete();
-        return redirect()->back()->with(['message' => 'Pengumuman deleted permanently', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pengumuman ' . $data->title . ' berhasil dihapus permanen', 'alert-type' => 'success']);
     }
 
     public function generateID()

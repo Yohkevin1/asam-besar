@@ -48,7 +48,7 @@ class C_Kegiatan extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with(['message' => 'Kegiatan created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data kegiatan ' . $request->title . ' berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detail($id)
@@ -56,7 +56,7 @@ class C_Kegiatan extends Controller
         $data = Kegiatan::find(decrypt($id));
         $img_collection = IMG_Collection::all();
         if (!$data) {
-            return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.kegiatan.detail', compact('data', 'img_collection'));
     }
@@ -78,7 +78,7 @@ class C_Kegiatan extends Controller
 
         $data = Kegiatan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->update([
             'title' => $request->title,
@@ -89,18 +89,18 @@ class C_Kegiatan extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with(['message' => 'Kegiatan updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data kegiatan ' . $data->title . ' berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function delete($id)
     {
         $data = Kegiatan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
         }
         Pengumuman::where('id_kegiatan', decrypt($id))->update(['id_kegiatan' => null]);
         $data->delete();
-        return redirect()->back()->with(['message' => 'Kegiatan deleted successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data kegiatan ' . $data->title . ' berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -113,10 +113,10 @@ class C_Kegiatan extends Controller
     {
         $data = Kegiatan::withTrashed()->find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return back()->with(['message' => 'Kegiatan restored successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data kegiatan ' . $data->title . ' berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDelete($id)
@@ -124,12 +124,12 @@ class C_Kegiatan extends Controller
         try {
             $data = Kegiatan::onlyTrashed()->find(decrypt($id));
             if (!$data) {
-                return back()->with(['message' => 'Kegiatan not found', 'alert-type' => 'error']);
+                return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
             }
             $data->forceDelete();
-            return back()->with(['message' => 'Kegiatan deleted successfully', 'alert-type' => 'success']);
+            return back()->with(['message' => 'Data kegiatan ' . $data->title . ' berhasil dihapus permanen', 'alert-type' => 'success']);
         } catch (\Exception) {
-            return back()->with(['message' => 'Kegiatan tidak dapat dihapus permanen karena terikat dengan data lain', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data kegiatan ' . $data->title . ' tidak dapat dihapus permanen karena terikat dengan data lain', 'alert-type' => 'error']);
         }
     }
 

@@ -41,7 +41,7 @@ class C_Users extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->back()->with(['message' => 'User created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'User berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function deleteUser($id)
@@ -51,7 +51,7 @@ class C_Users extends Controller
             return back()->with(['message' => 'User not found', 'alert-type' => 'error']);
         }
         $user->delete();
-        return redirect()->back()->with(['message' => 'User deleted successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'User berhasil di hapus', 'alert-type' => 'success']);
     }
 
     public function resetPassword(Request $request, $id)
@@ -65,10 +65,10 @@ class C_Users extends Controller
             [
                 'password.required' => 'Masukkan password terbaru',
                 'password.min' => 'Password minimal 8 karakter',
-                'password.same' => 'Password Confrimation tidak cocok',
+                'password.same' => 'Konfirmasi password tidak cocok',
                 'password.regex' => 'Password harus mengandung minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus',
-                'confirm_password.required' => 'Password Konfirmasi diperlukan',
-                'confirm_password.same' => 'Password Konfirmasi tidak cocok',
+                'confirm_password.required' => 'Konfirmasi password diperlukan',
+                'confirm_password.same' => 'Konfirmasi password tidak cocok',
             ]
         );
 
@@ -78,13 +78,13 @@ class C_Users extends Controller
 
         $user = User::find($id);
         if (!$user) {
-            return back()->with(['message' => 'User not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'User tidak ditemukan', 'alert-type' => 'error']);
         }
 
         $user->update([
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->back()->with(['message' => 'Password Berhasil Dirubah', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Password Berhasil diubah', 'alert-type' => 'success']);
     }
 }

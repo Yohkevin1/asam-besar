@@ -34,7 +34,7 @@ class C_ImgCollection extends Controller
             'id' => $imageName
         ]);
 
-        return redirect()->back()->with(['message' => 'Image uploaded successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Image berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function deleteImages($id)
@@ -42,15 +42,15 @@ class C_ImgCollection extends Controller
         try {
             $image = IMG_Collection::find($id);
             if (!$image) {
-                return redirect()->back()->with('error', 'Image not found');
+                return redirect()->back()->with('error', 'Image tidak ditemukan');
             }
 
             $image->delete();
             File::delete('img/collection/' . $id);
 
-            return redirect()->back()->with(['message' => 'Image deleted successfully', 'alert-type' => 'success']);
+            return redirect()->back()->with(['message' => 'Image berhasil dihapus', 'alert-type' => 'success']);
         } catch (QueryException $e) {
-            return redirect()->back()->with(['message' => 'Failed to delete image because it is in use', 'alert-type' => 'error']);
+            return redirect()->back()->with(['message' => 'Image gagal dihapus karena sedang digunakan', 'alert-type' => 'error']);
         }
     }
 }

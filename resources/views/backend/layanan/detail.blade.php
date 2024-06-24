@@ -28,22 +28,22 @@
                     <div class="form-row">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
+                                <label for="title">Nama Layanan <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Contoh: Sakramen Xxxxx" required value="{{ $data->title }}">
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">Deskripsi Layanan <span class="text-danger">*</span></label>
                                 <textarea class="form-control summernote" id="description" name="description" rows="5" required>{{ $data->description }}</textarea>
                             </div>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="location">Status</label>
                             <input type="text" class="form-control mb-3" id="status" name="status" disabled value="{{ $data->status }}">
-                            <label for="img_header">Image Header</label>
+                            <label for="img_header">Gambar Header</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly value="{{ $data->img_header }}">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Select Image</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Pilih Gambar</button>
                                 </div>
                             </div>
                             <div class="form-group">

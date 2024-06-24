@@ -24,8 +24,7 @@ class C_Pernikahan extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:200',
-            'post_date' => 'required|date',
-            'end_date' => 'required|date',
+            'date' => 'required|date',
             'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
             'status' => 'required',
@@ -42,21 +41,20 @@ class C_Pernikahan extends Controller
         Pernikahan::create([
             'id' => $this->generateID(),
             'title' => $request->title,
-            'post_date' => $request->post_date,
-            'end_date' => $request->end_date,
+            'date' => $request->date,
             'description' => $request->description,
             'foto' => $imageName,
             'status' => $request->status,
         ]);
 
-        return redirect()->back()->with(['message' => 'Pernikahan created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pernikahan berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detail($id)
     {
         $data = Pernikahan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Pernikahan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pernikahan tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.pernikahan.detail', compact('data'));
     }
@@ -65,8 +63,7 @@ class C_Pernikahan extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:200',
-            'post_date' => 'required|date',
-            'end_date' => 'required|date',
+            'date' => 'required|date',
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
             'status' => 'required',
@@ -78,7 +75,7 @@ class C_Pernikahan extends Controller
 
         $data = Pernikahan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Pernikahan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pernikahan tidak ditemukan', 'alert-type' => 'error']);
         }
 
         $image = $request->file('image');
@@ -90,27 +87,26 @@ class C_Pernikahan extends Controller
             }
             $data->update([
                 'title' => $request->title,
-                'post_date' => $request->post_date,
-                'end_date' => $request->end_date,
+                'date' => $request->date,
                 'description' => $request->description,
                 'foto' => $imageName,
                 'status' => $request->status,
             ]);
         } else {
-            $data->update($request->only(['title', 'post_date', 'end_date', 'description', 'status']));
+            $data->update($request->only(['title', 'date', 'description', 'status']));
         }
 
-        return redirect()->back()->with(['message' => 'Pernikahan updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pernikahan berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function delete($id)
     {
         $data = Pernikahan::find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Pernikahan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pernikahan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->delete();
-        return redirect()->back()->with(['message' => 'Pernikahan deleted successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pernikahan berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -123,23 +119,23 @@ class C_Pernikahan extends Controller
     {
         $data = Pernikahan::withTrashed()->find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Pernikahan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Data pernikahan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return redirect()->back()->with(['message' => 'Pernikahan restored successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pernikahan berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDelete($id)
     {
         $data = Pernikahan::onlyTrashed()->find(decrypt($id));
         if (!$data) {
-            return back()->with(['message' => 'Pernikahan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Pernikahan tidak ditemukan', 'alert-type' => 'error']);
         }
         if (File::exists('img/pernikahan/' . $data->foto)) {
             File::delete('img/pernikahan/' . $data->foto);
         }
         $data->forceDelete();
-        return redirect()->back()->with(['message' => 'Pernikahan deleted permanently', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data pernikahan berhasil dihapus permanen', 'alert-type' => 'success']);
     }
 
     public function generateID()

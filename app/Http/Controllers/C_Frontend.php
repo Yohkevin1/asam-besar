@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\Layanan;
 use App\Models\Pengumuman;
+use App\Models\Pernikahan;
 use App\Models\Profile;
 use App\Models\Renungan;
 use Carbon\Carbon;
@@ -48,9 +49,8 @@ class C_Frontend extends Controller
     {
         $profile = Profile::where('status', 'Publish')->get();
         $layanan = Layanan::where('status', 'Publish')->get();
-        $data = Renungan::where('id', decrypt($id))->where('status', 'Publish')->first();
-        if (!$data)
-            abort(404);
+        $data = Renungan::where('id', decrypt($id))->where('status', 'Publish')->firstOrFail();
+
         return view('frontend.detailPage', compact('data', 'profile', 'layanan'));
     }
 
@@ -58,9 +58,7 @@ class C_Frontend extends Controller
     {
         $profile = Profile::where('status', 'Publish')->get();
         $layanan = Layanan::where('status', 'Publish')->get();
-        $data = Kegiatan::where('id', decrypt($id))->where('status', 'Publish')->first();
-        if (!$data)
-            abort(404);
+        $data = Kegiatan::where('id', decrypt($id))->where('status', 'Publish')->firstOrFail();
         return view('frontend.detailPage', compact('data', 'profile', 'layanan'));
     }
 
@@ -68,9 +66,7 @@ class C_Frontend extends Controller
     {
         $profile = Profile::where('status', 'Publish')->get();
         $layanan = Layanan::where('status', 'Publish')->get();
-        $data = Profile::where('title', $slug)->where('status', 'Publish')->first();
-        if (!$data)
-            abort(404);
+        $data = Profile::where('title', $slug)->where('status', 'Publish')->firstOrFail();
         return view('frontend.detailPage', compact('data', 'profile', 'layanan'));
     }
 
@@ -78,9 +74,16 @@ class C_Frontend extends Controller
     {
         $profile = Profile::where('status', 'Publish')->get();
         $layanan = Layanan::where('status', 'Publish')->get();
-        $data = Layanan::where('title', $slug)->where('status', 'Publish')->first();
-        if (!$data)
-            abort(404);
-        return view('frontend.detailPage', compact('layanan', 'profile', 'data'));
+        $data = Layanan::where('title', $slug)->where('status', 'Publish')->firstOrFail();
+        $pernikahan = null;
+        if ($slug === 'pernikahan' || $slug === 'sakramen pernikahan') {
+            $pernikahan = Pernikahan::whereYear('date', date('Y'))
+                ->where('status', 'Publish')
+                ->where('date', '>=', Carbon::today())
+                ->orderBy('date', 'desc')
+                ->get();
+        }
+
+        return view('frontend.detailPage', compact('layanan', 'profile', 'data', 'pernikahan'));
     }
 }

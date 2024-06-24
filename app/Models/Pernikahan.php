@@ -15,8 +15,7 @@ class Pernikahan extends Model
     protected $fillable = [
         'id',
         'title',
-        'post_date',
-        'end_date',
+        'date',
         'description',
         'foto',
         'status'

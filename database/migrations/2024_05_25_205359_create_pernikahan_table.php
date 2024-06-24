@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('pernikahan', function (Blueprint $table) {
             $table->string('id', 12)->primary();
             $table->string('title', 200);
-            $table->dateTime('post_date');
-            $table->dateTime('end_date');
+            $table->date('date');
             $table->mediumText('description');
             $table->string('foto', 255);
             $table->string('status', 10);

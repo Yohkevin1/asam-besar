@@ -29,26 +29,22 @@
                         <div class="form-group col-md-6">
                             <div class="d-flex flex-column">
                                 <div class="mb-3">
-                                    <label for="title">Judul</label>
+                                    <label for="title">Nama Pasangan Mempelai <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="title" name="title" value="{{ $data->title }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="post_date">Tanggal Post</label>
-                                    <input type="datetime-local" class="form-control" id="post_date" name="post_date" value="{{ $data->post_date }}" required>
-                                </div>
-                                <div>
-                                    <label for="end_date">Tanggal Berakhir</label>
-                                    <input type="datetime-local" class="form-control" id="end_date" name="end_date" value="{{ $data->end_date }}" required>
+                                    <label for="date">Tanggal Pernikahan <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="date" name="date" required value="{{ $data->date }}">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <div class="d-flex flex-wrap">
                                 <div class="form-group col-md-7">
-                                    <label for="img_header">Foto Mempelai</label>
+                                    <label for="img_header">Foto Pasangan Mempelai <span class="text-danger">*</span></label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" onchange="previewImage()">
-                                        <label class="custom-file-label" for="image">Pilih gambar...</label>
+                                        <label class="custom-file-label" for="image">Pilih Gambar</label>
                                     </div>
                                     <div class="form-group mt-2">
                                         <img src="{{ asset('img/pernikahan/' . $data->foto) }}" class="img-thumbnail img-preview" style="max-height: 165px; height: auto;">
@@ -63,7 +59,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Deskripsi</label>
+                        <label for="description">Deskripsi <span class="text-danger">*</span></label>
                         <textarea class="form-control summernote" id="description" name="description" rows="5" required>{{ $data->description }}</textarea>
                     </div>
                 </div>

@@ -9,7 +9,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('profile') }}">Kelola Profile Paroki</a></li>
-        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Trash</strong></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Tempat Sampah</strong></li>
     </ol>
 </nav>
 <div class="row">
@@ -25,7 +25,7 @@
                 <table class="table table-striped table-responsive w-auto" id="dataTable">
                     <thead>
                         <tr>
-                            <th>List Trash Profile Paroki</th>
+                            <th>List Sampah Halaman Profile Paroki</th>
                             <th width="10%">Status</th>
                             <th width="5%">Actions</th>
                         </tr>

@@ -26,21 +26,21 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="title">Judul</label>
+                        <label for="title">Judul Pengumuman <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="post_date">Tanggal Post</label>
+                            <label for="post_date">Tanggal Mulai Diposting <span class="text-danger">*</span></label>
                             <input type="datetime-local" class="form-control" id="post_date" name="post_date" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="end_date">Tanggal Berakhir</label>
+                            <label for="end_date">Tanggal Berakhir Diposting <span class="text-danger">*</span></label>
                             <input type="datetime-local" class="form-control" id="end_date" name="end_date" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Deskripsi</label>
+                        <label for="description">Deskripsi <span class="text-danger">*</span></label>
                         <textarea class="form-control summernote" id="description" name="description" rows="5" required></textarea>
                     </div>
                     <div class="form-row">

@@ -29,11 +29,11 @@
                         <div class="form-group col-md-6">
                             <div class="d-flex flex-column">
                                 <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
+                                    <label for="title">Judul Gambar <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="Contoh: Renungan Kemerdekaan" required value="{{ $data->title }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="date">Date</label>
+                                    <label for="date">Tanggal Renungan <span class="text-danger">*</span></label>
                                     <input type="date" class="form-control" id="date" name="date" required value="{{ $data->date }}">
                                 </div>
                                 <div class="form-group">
@@ -43,11 +43,11 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="img_header">Image Header</label>
+                            <label for="img_header">Gambar Header</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="selectedImg" name="img_header" required readonly value="{{ $data->img_header }}">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Select Image</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imgCollectionModal">Pilih Gambar</button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -74,7 +74,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="imgCollectionModalLabel">Select Image</h5>
+                <h5 class="modal-title" id="imgCollectionModalLabel">Pilih Gambar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

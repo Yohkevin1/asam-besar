@@ -40,7 +40,7 @@ class C_Layanan extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with(['message' => 'Layanan created successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data layanan' . $request->title . ' berhasil ditambah', 'alert-type' => 'success']);
     }
 
     public function detail($id)
@@ -49,7 +49,7 @@ class C_Layanan extends Controller
         $data = Layanan::find($id);
         $img_collection = IMG_Collection::all();
         if (!$data) {
-            return back()->with(['message' => 'Layanan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }
         return view('backend.layanan.detail', compact('data', 'img_collection'));
     }
@@ -69,7 +69,7 @@ class C_Layanan extends Controller
         $id = decrypt($id);
         $data = Layanan::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Layanan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->update([
             'title' => $request->title,
@@ -77,7 +77,7 @@ class C_Layanan extends Controller
             'img_header' => $request->img_header ?? 'Logo_Paroki.png',
             'status' => $request->status
         ]);
-        return redirect()->back()->with(['message' => 'Layanan updated successfully', 'alert-type' => 'success']);
+        return redirect()->back()->with(['message' => 'Data layanan' . $data->title . ' berhasil diupdate', 'alert-type' => 'success']);
     }
 
     public function delete($id)
@@ -85,10 +85,10 @@ class C_Layanan extends Controller
         $id = decrypt($id);
         $data = Layanan::find($id);
         if (!$data) {
-            return back()->with(['message' => 'Layanan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->delete();
-        return back()->with(['message' => 'Layanan deleted successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data layanan' . $data->title . ' berhasil dihapus', 'alert-type' => 'success']);
     }
 
     public function trash()
@@ -102,10 +102,10 @@ class C_Layanan extends Controller
         $id = decrypt($id);
         $data = Layanan::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Layanan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->restore();
-        return back()->with(['message' => 'Layanan restored successfully', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data layanan' . $data->title . ' berhasil dipulihkan', 'alert-type' => 'success']);
     }
 
     public function forceDelete($id)
@@ -113,9 +113,9 @@ class C_Layanan extends Controller
         $id = decrypt($id);
         $data = Layanan::onlyTrashed()->find($id);
         if (!$data) {
-            return back()->with(['message' => 'Layanan not found', 'alert-type' => 'error']);
+            return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }
         $data->forceDelete();
-        return back()->with(['message' => 'Layanan deleted permanently', 'alert-type' => 'success']);
+        return back()->with(['message' => 'Data layanan' . $data->title . ' berhasil dihapus permanen', 'alert-type' => 'success']);
     }
 }

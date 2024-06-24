@@ -17,7 +17,7 @@
             <div class="card-header">
                 <div class="card-tools">
                     <a href="{{ route('profileCreate') }}" class="btn btn-primary">Tambah Profile</a>
-                    <a href="{{ route('profileTrash') }}" class="btn btn-danger">Trash</a>
+                    <a href="{{ route('profileTrash') }}" class="btn btn-danger">Tempat Sampah</a>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -25,7 +25,7 @@
                 <table class="table table-striped table-responsive w-auto" id="dataTable">
                     <thead >
                         <tr>
-                            <th>List Page Profile</th>
+                            <th>List Halaman Profile</th>
                             <th width="10%">Status</th>
                             <th width="5%">Aksi</th>
                         </tr>

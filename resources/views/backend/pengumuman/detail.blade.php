@@ -26,16 +26,16 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="title">Judul</label>
+                        <label for="title">Judul Pengumuman <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title" required value="{{ $data->title }}">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="post_date">Tanggal Post</label>
+                            <label for="post_date">Tanggal Mulai Diposting <span class="text-danger">*</span></label>
                             <input type="datetime-local" class="form-control" id="post_date" name="post_date" required value="{{ date('Y-m-d\TH:i', strtotime($data->post_date)) }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="end_date">Tanggal Berakhir</label>
+                            <label for="end_date">Tanggal Berakhir Diposting <span class="text-danger">*</span></label>
                             <input type="datetime-local" class="form-control" id="end_date" name="end_date" required value="{{ date('Y-m-d\TH:i', strtotime($data->end_date)) }}">
                         </div>
                     </div>
