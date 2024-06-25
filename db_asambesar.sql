@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `kegiatan` (
   `date` date NOT NULL,
   `description` mediumtext COLLATE utf8mb4_unicode_ci,
   `img_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Logo_Paroki.png',
-  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,

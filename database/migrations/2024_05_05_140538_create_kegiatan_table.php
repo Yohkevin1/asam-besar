@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->mediumText('description')->nullable();
             $table->string('img_header', 255)->default('Logo_Paroki.png')->nullable();
-            $table->string('status', 50);
+            $table->string('status', 10);
             $table->timestamps();
             $table->softDeletesDatetime('deleted_at');
             $table->foreign('img_header')->references('id')->on('img_collection');
