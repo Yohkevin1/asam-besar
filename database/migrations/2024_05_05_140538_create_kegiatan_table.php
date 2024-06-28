@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 200);
             $table->string('location', 200);
             $table->date('date');
-            $table->mediumText('description')->nullable();
+            $table->mediumText('description');
             $table->string('img_header', 255)->default('Logo_Paroki.png')->nullable();
             $table->string('status', 10);
             $table->timestamps();
