@@ -67,11 +67,11 @@
             <h1 class="mb-2 h6" style="font-weight: bold;">PAROKI ASAM BESAR GEREJA ST. BLASIUS</h1>
             <hr class="mb-2">
             <h4 class="mb-4" style="color: rgb(87, 87, 87)">Asam Besar, Kec. Manis Mata, Kabupaten Ketapang, Kalimantan Barat 78864</h4>
-            {{-- <ul class="list-unstyled mb-4">
-                <li><img src="{{ asset('img/mail.png') }}" alt="Email" style="width: 20px; height: auto; margin-right: 10px;"><strong>Email:</strong> <a href="mailto:xxxx@gmail.com">xxxx@gmail.com</a></li>
-                <li><img src="{{ asset('img/whatsapp.png') }}" alt="WhatsApp" style="width: 20px; height: auto; margin-right: 10px;"><strong>WhatsApp:</strong> <a href="https://wa.me/6287755116033" target="_blank">Hubungi via WhatsApp</a></li>
-                <li><img src="{{ asset('img/phone.png') }}" alt="Phone" style="width: 20px; height: auto; margin-right: 10px;"><strong>Nomor Telepon:</strong> +6287755116033</li>
-            </ul> --}}
+            <ul class="list-unstyled mb-4">
+                <li><img src="{{ asset('img/mail.png') }}" alt="Email" style="width: 20px; height: auto; margin-right: 10px;"><strong>Email:</strong> <a href="mailto:parokiasambesar@gmail.com">parokiasambesar@gmail.com</a></li>
+                {{-- <li><img src="{{ asset('img/whatsapp.png') }}" alt="WhatsApp" style="width: 20px; height: auto; margin-right: 10px;"><strong>WhatsApp:</strong> <a href="https://wa.me/6287755116033" target="_blank">Hubungi via WhatsApp</a></li>
+                <li><img src="{{ asset('img/phone.png') }}" alt="Phone" style="width: 20px; height: auto; margin-right: 10px;"><strong>Nomor Telepon:</strong> +6287755116033</li> --}}
+            </ul>
             <hr class="mb-2">
             <h4 style="color: black">OPERASIONAL SEKRETARIAT</h4>
             <ul class="list-unstyled">
@@ -98,7 +98,7 @@
     //     .openPopup();
 
     L.marker([-2.401011349783975, 111.0156926508436]).addTo(map)
-        .bindPopup('<strong>Paroki Asam Besar</strong>')
+        .bindPopup('<strong>Paroki Asam Besar</strong><br><a href="mailto:parokiasambesar@gmail.com">Kirim email</a>')
         .openPopup();
 
 </script>
