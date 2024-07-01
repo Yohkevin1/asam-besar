@@ -60,7 +60,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid d-flex align-items-center justify-content-center text-center py-5" style="background-image: url('https://i.pinimg.com/736x/75/2a/0a/752a0a82fbe9cc6461f5f16df1ed39fd.jpg'); background-attachment: fixed; background-size: cover; background-position: center; height: 100vh; position: relative;">
+<div class="container-fluid d-flex align-items-center justify-content-center text-center py-5" style="background-image: url('{{asset('img/gereja_St_Blasius.jpg')}}'); background-attachment: fixed; background-size: cover; background-position: center; height: 100vh; position: relative;">
     <div class="overlay"></div>
     <div class="row justify-content-center">
         <div class="col-md-10">
