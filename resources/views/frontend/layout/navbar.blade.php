@@ -51,7 +51,7 @@
         color: white;
     }
 
-    .navbar-brand h1 {
+    .navbar-brand h2 {
         margin: 0;
         padding: 0;
     }
