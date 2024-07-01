@@ -64,7 +64,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-md-6 mb-5" data-aos="zoom-in-up" data-aos-duration="1000">
-            <h1 class="mb-2 h6" style="font-weight: bold;">PAROKI ASAM BESAR GEREJA ST. BLASIUS</h1>
+            <h2 class="mb-2 h6" style="font-weight: bold;">PAROKI ASAM BESAR GEREJA ST. BLASIUS</h2>
             <hr class="mb-2">
             <h4 class="mb-4" style="color: rgb(87, 87, 87)">Asam Besar, Kec. Manis Mata, Kabupaten Ketapang, Kalimantan Barat 78864</h4>
             <ul class="list-unstyled mb-4">

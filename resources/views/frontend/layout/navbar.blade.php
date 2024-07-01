@@ -62,8 +62,8 @@
         <a class="navbar-brand" href="{{ route('home') }}" style="display: flex; align-items: center; text-decoration: none;">
             <img src="{{ asset('img/Logo_Paroki_Transparan.png') }}" alt="Logo" style="width: 50px; height: auto;">
             <span class="nav-link-header" style="margin-left: 10px;">
-                <h1 class="h5" style="font-weight: bold">PAROKI ASAM BESAR</h1>
-                <h1 class="h6">Gereja Santo Blasius</h1>
+                <h2 class="h5" style="font-weight: bold">PAROKI ASAM BESAR</h2>
+                <h2 class="h6">Gereja Santo Blasius</h2>
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

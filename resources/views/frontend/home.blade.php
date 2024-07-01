@@ -97,7 +97,7 @@
 </div>
 
 <div class="container my-5">
-    <h1 class="text-center mb-5" data-aos="zoom-in-up" data-aos-duration="1000"><strong>PENGUMUMAN</strong> GEREJA</h1>
+    <h2 class="text-center mb-5 h1" data-aos="zoom-in-up" data-aos-duration="1000"><strong>PENGUMUMAN</strong> GEREJA</h2>
     @if($pengumuman->isEmpty())
         <div class="alert alert-info text-center" role="alert" data-aos="zoom-in-up" data-aos-duration="1000">
             <i class="fas fa-info-circle fa-2x mb-3"></i>
@@ -152,7 +152,7 @@
 @endforeach
 
 <div class="container my-5">
-    <h1 class="text-center mb-5" data-aos="zoom-in-up" data-aos-duration="1000"><strong>KEGIATAN</strong> MENDATANG</h1>
+    <h2 class="text-center mb-5 h1" data-aos="zoom-in-up" data-aos-duration="1000"><strong>KEGIATAN</strong> MENDATANG</h2>
     @if($kegiatan->isEmpty())
         <div class="alert alert-info text-center" role="alert" data-aos="zoom-in-up" data-aos-duration="1000">
             <i class="fas fa-info-circle fa-2x mb-3"></i>

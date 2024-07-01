@@ -136,7 +136,7 @@
                         @endif
                     </div>
                     <div class="card-body align-self-center">
-                        <h1 class="card-title h3" style="font-weight: bold;">{{ strtoupper($keg->title) }}</h1>
+                        <h2 class="card-title h3" style="font-weight: bold;">{{ strtoupper($keg->title) }}</h2>
                         <div class="d-flex align-items-center">
                             <span class="card-icon mr-2"><i class="fas fa-map-marker-alt"></i></span>
                             <p class="card-text">{{ $keg->location }}</p>

@@ -138,7 +138,7 @@
 
 @if (isset($pernikahan))
   <div class="container my-5">
-    <h1 class="text-center mb-5" data-aos="zoom-in-up" data-aos-duration="1000"><strong>PENGUMUMAN</strong> PERNIKAHAN</h1>
+    <h2 class="text-center mb-5 h1" data-aos="zoom-in-up" data-aos-duration="1000"><strong>PENGUMUMAN</strong> PERNIKAHAN</h2>
     @if($pernikahan->isEmpty())
         <div class="alert alert-info text-center" role="alert" data-aos="zoom-in-up" data-aos-duration="1000">
           <i class="fas fa-info-circle fa-2x mb-3"></i>
