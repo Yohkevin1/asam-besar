@@ -26,7 +26,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <a href="{{ route('imgCollection') }}" class="btn btn-primary btn-block">
-                                    <i class="fas fa-upload"></i> Upload Gambar
+                                    <i class="fas fa-upload"></i> Upload Gambar Header
                                 </a>
                             </li>
                             <li class="list-group-item">
@@ -66,6 +66,15 @@
                             <li class="list-group-item">
                                 <a href="{{ route('pernikahan') }}" class="btn btn-primary btn-block">
                                     <i class="fas fa-ring"></i> Kelola Pernikahan
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{{ route('gallery') }}" class="btn btn-primary btn-block">
+                                    <i class="fa-solid fa-photo-film"></i> Kelola Galeri
                                 </a>
                             </li>
                         </ul>

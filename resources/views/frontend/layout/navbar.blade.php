@@ -100,6 +100,9 @@
                 <li class="nav-item pl-3">
                     <a class="nav-link" href="{{ route('contact') }}">Kontak</a>
                 </li>
+                <li class="nav-item pl-3">
+                    <a class="nav-link" href="{{ route('galleryPage') }}">Galeri</a>
+                </li>
             </ul>
         </div>
     </div>

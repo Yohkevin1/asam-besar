@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\IMG_Collection;
 use App\Models\Kegiatan;
 use App\Models\Layanan;
 use App\Models\Pengumuman;
@@ -85,5 +86,13 @@ class C_Frontend extends Controller
         }
 
         return view('frontend.detailPage', compact('layanan', 'profile', 'data', 'pernikahan'));
+    }
+
+    public function gallery()
+    {
+        $profile = Profile::where('status', 'Publish')->get();
+        $layanan = Layanan::where('status', 'Publish')->get();
+        $img = IMG_Collection::where('status', 'galeri')->get();
+        return view('frontend.gallery', compact('img', 'profile', 'layanan'));
     }
 }

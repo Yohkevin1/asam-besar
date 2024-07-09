@@ -8,14 +8,14 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Beranda</a></li>
-        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Upload Image</strong></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: black"><strong>Upload Gambar Header</strong></li>
     </ol>
 </nav>
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
             <div class="card-header">
-                Upload Gambar
+                Upload Gambar Header
             </div>
             <div class="card-body text-center">
                  <form action="{{ route('addImages') }}" method="POST" enctype="multipart/form-data">
@@ -35,7 +35,7 @@
     <div class="col-lg-9">
         <div class="card">
             <div class="card-header">
-                Daftar Gambar
+                Daftar Gambar Header
             </div>
             <div class="card-body" id="imageList" style="display: flex; flex-wrap: wrap;">
                 <!-- Daftar Gambar akan dimuat di sini -->

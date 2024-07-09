@@ -18,7 +18,7 @@ class C_Pengumuman extends Controller
 
     public function create()
     {
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         $kegiatan = Kegiatan::where('status', 'Publish')->get();
         return view('backend.pengumuman.create', compact('img_collection', 'kegiatan'));
     }
@@ -55,7 +55,7 @@ class C_Pengumuman extends Controller
     public function detail($id)
     {
         $data = Pengumuman::find($id);
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         $kegiatan = Kegiatan::where('status', 'Publish')->get();
         if (!$data) {
             return back()->with(['message' => 'Data pengumuman tidak ditemukan', 'alert-type' => 'error']);

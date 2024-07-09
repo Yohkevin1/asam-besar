@@ -12,7 +12,8 @@ class IMG_Collection extends Model
     protected $table = "img_collection";
 
     protected $fillable = [
-        'id'
+        'id',
+        'status'
     ];
 
     protected $casts = [

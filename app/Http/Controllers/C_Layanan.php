@@ -17,7 +17,7 @@ class C_Layanan extends Controller
 
     public function create()
     {
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         return view('backend.layanan.create', compact('img_collection'));
     }
 
@@ -47,7 +47,7 @@ class C_Layanan extends Controller
     {
         $id = decrypt($id);
         $data = Layanan::find($id);
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         if (!$data) {
             return back()->with(['message' => 'Layanan tidak ditemukan', 'alert-type' => 'error']);
         }

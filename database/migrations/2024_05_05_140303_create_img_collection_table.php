@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('img_collection', function (Blueprint $table) {
             $table->string('id', 255)->primary();
+            $table->string('status', 15);
             $table->timestamps();
         });
     }

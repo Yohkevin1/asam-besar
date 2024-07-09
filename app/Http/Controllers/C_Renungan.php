@@ -17,7 +17,7 @@ class C_Renungan extends Controller
 
     public function createRenungan()
     {
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         return view('backend.renungan.create', compact('img_collection'));
     }
 
@@ -51,7 +51,7 @@ class C_Renungan extends Controller
     public function detailRenungan($id)
     {
         $data = Renungan::find(decrypt($id));
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         if (!$data) {
             return back()->with(['message' => 'Renungan tidak ditemukan', 'alert-type' => 'error']);
         }

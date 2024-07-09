@@ -29,6 +29,7 @@ Route::group([], function () {
     Route::get('/kontak', [C_Frontend::class, 'contact'])->name('contact');
     Route::get('/renungan', [C_Frontend::class, 'renungan'])->name('renunganpage');
     Route::get('/kegiatan', [C_Frontend::class, 'kegiatan'])->name('kegiatanpage');
+    Route::get('/galeri', [C_Frontend::class, 'gallery'])->name('galleryPage');
     Route::get('/renungan/{id}', [C_Frontend::class, 'detailRenungan'])->name('detailRenungan');
     Route::get('/kegiatan/{id}', [C_Frontend::class, 'detailKegiatan'])->name('detailKegiatan');
     Route::get('/profile/{slug}', [C_Frontend::class, 'profile'])->name('profilePage');
@@ -50,6 +51,14 @@ Route::prefix('backyard')->group(function () {
             Route::post('/addImages', [C_ImgCollection::class, 'addImages'])->name('addImages');
             Route::get('/getAllImages', [C_ImgCollection::class, 'getAllImages'])->name('getAllImages');
             Route::delete('/deleteImages/{id}', [C_ImgCollection::class, 'deleteImages'])->name('deleteImages');
+        });
+
+        // Gallery Management
+        Route::prefix('gallery')->group(function () {
+            Route::get('/', [C_ImgCollection::class, 'gallery'])->name('gallery');
+            Route::post('/addGallery', [C_ImgCollection::class, 'addGallery'])->name('addGallery');
+            Route::get('/getAllGallery', [C_ImgCollection::class, 'getAllGallery'])->name('getAllGallery');
+            Route::delete('/deleteGallery/{id}', [C_ImgCollection::class, 'deleteGallery'])->name('deleteGallery');
         });
 
         // User Management

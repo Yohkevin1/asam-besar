@@ -18,7 +18,7 @@ class C_Kegiatan extends Controller
 
     public function create()
     {
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         return view('backend.kegiatan.create', compact('img_collection'));
     }
 
@@ -54,7 +54,7 @@ class C_Kegiatan extends Controller
     public function detail($id)
     {
         $data = Kegiatan::find(decrypt($id));
-        $img_collection = IMG_Collection::all();
+        $img_collection = IMG_Collection::where('status', 'header')->get();
         if (!$data) {
             return back()->with(['message' => 'Kegiatan tidak ditemukan', 'alert-type' => 'error']);
         }
