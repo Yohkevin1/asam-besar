@@ -79,21 +79,29 @@
 </div>
 
 <div class="container py-5">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        @foreach ($img as $item)    
-        <div class="col mb-4">
-            <div class="card gallery-item" data-aos="zoom-in-up" data-aos-duration="1000">
-                @if (Str::endsWith($item->id, ['.png', '.jpg', '.jpeg', '.giv', '.svg']))
-                    <img src="{{ asset('img/gallery/'. $item->id) }}" class="card-img-top" alt="Gallery Image">
-                @else
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $item->id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                @endif
-            </div>
+    @if($img->isEmpty())
+        <div class="alert alert-info text-center" role="alert" data-aos="zoom-in-up" data-aos-duration="1000">
+            <i class="fas fa-info-circle fa-2x mb-3"></i>
+            <h4 class="alert-heading">GALERI TIDAK TERSEDIA</h4>
+            <p>Saat ini tidak ada foto & video yang tersedia. Silakan periksa kembali nanti.</p>
         </div>
-        @endforeach
-    </div>
+    @else
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            @foreach ($img as $item)
+            <div class="col mb-4">
+                <div class="card gallery-item" data-aos="zoom-in-up" data-aos-duration="1000">
+                    @if (Str::endsWith($item->id, ['.png', '.jpg', '.jpeg', '.giv', '.svg']))
+                        <img src="{{ asset('img/gallery/'. $item->id) }}" class="card-img-top" alt="Gallery Image">
+                    @else
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $item->id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            @endforeach
+        </div>
+    @endif
 </div>
 @endsection
 
