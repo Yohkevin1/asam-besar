@@ -23,7 +23,7 @@ class C_Users extends Controller
             [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:8|max:20|regex:/^(?:(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{10,})$/',
+                'password' => 'required|min:8|max:20|regex:/^(?:(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&.])[A-Za-z\d@$!%*#?&.]{10,})$/',
                 'confirm_password' => 'required|same:password'
             ],
             [
@@ -62,14 +62,13 @@ class C_Users extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'password' => 'required|min:8|max:20|same:confirm_password|regex:/^(?:(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{10,})$/',
+                'password' => 'required|min:8|max:20|regex:/^(?:(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&.])[A-Za-z\d@$!%*#?&.]{10,})$/',
                 'confirm_password' => 'required|same:password',
             ],
             [
                 'password.required' => 'Masukkan password terbaru',
                 'password.min' => 'Password minimal 8 karakter',
                 'password.max' => 'Password maksimal 20 karakter',
-                'password.same' => 'Konfirmasi password tidak cocok',
                 'password.regex' => 'Password harus mengandung minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus',
                 'confirm_password.required' => 'Konfirmasi password diperlukan',
                 'confirm_password.same' => 'Konfirmasi password tidak cocok',

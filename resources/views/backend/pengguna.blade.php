@@ -31,6 +31,9 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control" required>
+                        <small class="form-text text-muted">
+                            Password harus mengandung minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus. Panjang password harus antara 8 hingga 20 karakter.
+                        </small>
                     </div>
                     <div class="form-group">
                         <label for="confirm_password">Konfirmasi Password</label>
@@ -84,6 +87,9 @@
                                                 <div class="form-group">
                                                     <label for="new_password">New Password</label>
                                                     <input type="password" name="password" id="new_password" class="form-control" required>
+                                                    <small class="form-text text-muted">
+                                                        Password harus mengandung minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus. Panjang password harus antara 8 hingga 20 karakter.
+                                                    </small>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="confirm_new_password">Confirm New Password</label>

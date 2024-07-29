@@ -57,10 +57,6 @@
                             <input type="text" class="form-control" id="location" name="location" required>
                         </div>
                     </div>
-                    <div class="form-group text-right">
-                        <button type="submit" name="status" value="Publish" class="btn btn-primary">Publish</button>
-                        <button type="submit" name="status" value="Draft" class="btn btn-secondary"> Draft</button>
-                    </div>
                 </div>
             </form>
         </div>
