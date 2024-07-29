@@ -61,19 +61,67 @@ class C_ImgCollection extends Controller
         return view('backend.gallery', compact('contents'));
     }
 
+    // public function addGallery(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'content_type' => 'required|in:image,video',
+    //         'image' => 'required_if:content_type,image|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+    //         'video' => 'required_if:content_type,video|url',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->with(['message' => $validator->errors()->first(), 'alert-type' => 'error']);
+    //     }
+
+    //     if ($request->content_type == 'image') {
+    //         $image = $request->file('image');
+    //         $imageName = $image->hashName();
+    //         $image->move('img/gallery/', $imageName);
+
+    //         IMG_Collection::create([
+    //             'id' => $imageName,
+    //             'status' => 'galeri'
+    //         ]);
+    //     } elseif ($request->content_type == 'video') {
+    //         $youtubeUrl = $request->video;
+    //         parse_str(parse_url($youtubeUrl, PHP_URL_QUERY), $youtubeParams);
+    //         $videoId = $youtubeParams['v'];
+
+    //         IMG_Collection::create([
+    //             'id' => $videoId,
+    //             'status' => 'galeri'
+    //         ]);
+    //     }
+
+    //     return redirect()->back()->with(['message' => 'Data berhasil ditambah', 'alert-type' => 'success']);
+    // }
+
     public function addGallery(Request $request)
     {
+        // Custom validation logic
         $validator = Validator::make($request->all(), [
             'content_type' => 'required|in:image,video',
-            'image' => 'required_if:content_type,image|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
-            'video' => 'required_if:content_type,video|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+            'video' => 'nullable|url',
         ]);
 
+        // Custom error messages
+        $validator->after(function ($validator) use ($request) {
+            if ($request->content_type === 'image' && !$request->hasFile('image')) {
+                $validator->errors()->add('image', 'The image field is required when content type is image.');
+            }
+            if ($request->content_type === 'video' && !$request->video) {
+                $validator->errors()->add('video', 'The video field is required when content type is video.');
+            }
+        });
+
+        // Check if validation fails
         if ($validator->fails()) {
             return redirect()->back()->with(['message' => $validator->errors()->first(), 'alert-type' => 'error']);
         }
 
-        if ($request->content_type == 'image') {
+        // Proceed with processing the request
+        if ($request->content_type === 'image') {
             $image = $request->file('image');
             $imageName = $image->hashName();
             $image->move('img/gallery/', $imageName);
@@ -82,15 +130,19 @@ class C_ImgCollection extends Controller
                 'id' => $imageName,
                 'status' => 'galeri'
             ]);
-        } elseif ($request->content_type == 'video') {
+        } elseif ($request->content_type === 'video') {
             $youtubeUrl = $request->video;
             parse_str(parse_url($youtubeUrl, PHP_URL_QUERY), $youtubeParams);
-            $videoId = $youtubeParams['v'];
+            $videoId = $youtubeParams['v'] ?? null;
 
-            IMG_Collection::create([
-                'id' => $videoId,
-                'status' => 'galeri'
-            ]);
+            if ($videoId) {
+                IMG_Collection::create([
+                    'id' => $videoId,
+                    'status' => 'galeri'
+                ]);
+            } else {
+                return redirect()->back()->with(['message' => 'Invalid YouTube URL.', 'alert-type' => 'error']);
+            }
         }
 
         return redirect()->back()->with(['message' => 'Data berhasil ditambah', 'alert-type' => 'success']);
